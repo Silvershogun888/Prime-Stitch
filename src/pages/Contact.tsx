@@ -6,36 +6,10 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 export const Contact = () => {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'sent'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      service: formData.get('service'),
-      message: formData.get('message'),
-    };
-
     setFormState('sending');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        setFormState('sent');
-      } else {
-        setFormState('idle');
-        alert('Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setFormState('idle');
-      alert('An error occurred. Please try again later.');
-    }
+    setTimeout(() => setFormState('sent'), 2000);
   };
 
   return (

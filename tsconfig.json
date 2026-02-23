@@ -21,14 +21,10 @@
       ]
     },
     "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "types": [
-      "node"
-    ]
+    "noEmit": true
   },
   "include": [
-    "src",
-    "server.js"
+    "src"
   ],
   "exclude": [
     "node_modules",

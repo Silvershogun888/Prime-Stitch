@@ -10,8 +10,8 @@ const categories = ['All', 'School', 'Corporate', 'Sportswear', 'Winter', 'Acces
 export const Collection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const filteredProducts = activeCategory === 'All' 
-    ? PRODUCTS 
+  const filteredProducts = activeCategory === 'All'
+    ? PRODUCTS
     : PRODUCTS.filter(p => p.category === activeCategory);
 
   return (
@@ -22,15 +22,14 @@ export const Collection = () => {
             <h1 className="font-serif text-5xl md:text-7xl mb-4">The Collection</h1>
             <p className="text-fabric-ink/60 text-lg">Browse our range of handcrafted uniforms and apparel.</p>
           </div>
-          
+
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-500 relative overflow-hidden group ${
-                  activeCategory === cat ? 'text-white' : 'text-fabric-ink hover:bg-fabric-accent/5'
-                }`}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-500 relative overflow-hidden group ${activeCategory === cat ? 'text-white' : 'text-fabric-ink hover:bg-fabric-accent/5'
+                  }`}
               >
                 <span className="relative z-10">{cat}</span>
                 {activeCategory === cat && (
@@ -45,27 +44,25 @@ export const Collection = () => {
           </div>
         </header>
 
-        <motion.div 
-          layout
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12"
         >
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence>
             {filteredProducts.map((product) => (
               <motion.div
-                layout
                 key={product.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="product-card group"
               >
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-fabric-bg">
-                  <motion.img 
+                  <motion.img
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    src={product.image} 
-                    alt={product.name} 
+                    src={product.image}
+                    alt={product.name}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-fabric-ink/0 group-hover:bg-fabric-ink/5 transition-colors duration-500" />

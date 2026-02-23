@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { SERVICES } from '../constants';
 import { Button } from '../components/Button';
@@ -9,14 +8,14 @@ export const Services = () => {
     <div className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <header className="mb-24 text-center max-w-3xl mx-auto">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-fabric-accent uppercase tracking-[0.3em] text-xs font-bold mb-6 block"
           >
             Our Expertise
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -24,7 +23,7 @@ export const Services = () => {
           >
             The Tailoring Process
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -36,7 +35,7 @@ export const Services = () => {
 
         <div className="space-y-40">
           {SERVICES.map((service, index) => (
-            <motion.section 
+            <motion.section
               key={service.id}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -48,19 +47,19 @@ export const Services = () => {
                 initial={{ scaleX: 1 }}
                 whileInView={{ scaleX: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                 style={{ originX: index % 2 === 0 ? 0 : 1 }}
                 className="absolute inset-0 bg-fabric-accent/5 z-10 pointer-events-none rounded-3xl"
               />
-              
+
               <div className="flex-1">
                 <div className="relative aspect-square rounded-3xl overflow-hidden bg-fabric-accent/5">
-                  <motion.img 
+                  <motion.img
                     initial={{ scale: 1.2 }}
                     whileInView={{ scale: 1 }}
-                    transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                    src={`https://picsum.photos/seed/${service.id}/800/800`} 
-                    alt={service.title} 
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    src={`https://picsum.photos/seed/${service.id}/800/800`}
+                    alt={service.title}
                     className="w-full h-full object-cover mix-blend-multiply opacity-80"
                   />
                   <div className="absolute inset-0 border-[20px] border-white/20 pointer-events-none" />

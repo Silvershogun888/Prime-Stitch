@@ -15,7 +15,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { ease: [0.22, 1, 0.36, 1], duration: 0.8 } }
+  visible: { opacity: 1, y: 0, transition: { ease: "easeOut", duration: 0.8 } }
 };
 
 const ProductCard = ({ product }: { product: any; key?: string | number }) => {
@@ -36,7 +36,7 @@ const ProductCard = ({ product }: { product: any; key?: string | number }) => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       style={{ x, y }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -44,11 +44,11 @@ const ProductCard = ({ product }: { product: any; key?: string | number }) => {
     >
       <Link to={`/product/${product.id}`}>
         <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-fabric-bg">
-          <motion.img 
+          <motion.img
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            src={product.image} 
-            alt={product.name} 
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            src={product.image}
+            alt={product.name}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-fabric-ink/0 group-hover:bg-fabric-ink/10 transition-colors duration-500" />
@@ -71,48 +71,48 @@ export const Home = () => {
       <motion.div
         initial={{ scaleY: 1 }}
         animate={{ scaleY: 0 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
         style={{ originY: 0 }}
         className="fixed inset-0 bg-fabric-accent z-[150] pointer-events-none"
       />
 
       {/* Hero Section */}
       <section className="relative min-h-[calc(100vh-5rem)] flex items-center px-6 py-12 md:py-20">
-        <motion.div 
+        <motion.div
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.2 }}
           transition={{ duration: 2, ease: "easeOut" }}
           className="absolute inset-0 z-0"
         >
-          <img 
-            src="https://i.imgur.com/H5CJ5bf.png" 
-            alt="Tailoring background" 
+          <img
+            src="https://i.imgur.com/H5CJ5bf.png"
+            alt="Tailoring background"
             className="w-full h-full object-cover"
           />
         </motion.div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="overflow-hidden">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
               className="inline-block px-4 py-1 rounded-full border border-fabric-accent/30 text-fabric-accent text-xs uppercase tracking-[0.2em] mb-6"
             >
               Handcrafted in Lusaka
             </motion.span>
           </div>
-          
+
           <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl font-light leading-[0.9] mb-8 max-w-4xl">
             {["The", "Art", "of", "Perfect", "Fit."].map((word, i) => (
               <span key={i} className="inline-block overflow-hidden mr-4 last:mr-0">
                 <motion.span
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
-                  transition={{ 
-                    duration: 1, 
-                    ease: [0.22, 1, 0.36, 1], 
-                    delay: 0.6 + (i * 0.1) 
+                  transition={{
+                    duration: 1,
+                    ease: [0.22, 1, 0.36, 1],
+                    delay: 0.6 + (i * 0.1)
                   }}
                   className={`inline-block ${word === 'Perfect' ? 'italic text-fabric-accent' : ''}`}
                 >
@@ -122,19 +122,19 @@ export const Home = () => {
             ))}
           </h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1.2 }}
             className="text-lg md:text-xl text-fabric-ink/70 max-w-xl mb-10 leading-relaxed"
           >
             From school uniforms to blazers, we bring industrial precision and master craftsmanship to every stitch.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 1.4 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1.4 }}
             className="flex flex-wrap gap-4"
           >
             <Link to="/collection">
@@ -147,8 +147,8 @@ export const Home = () => {
         </div>
 
         {/* Floating Fabric Detail */}
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             y: [0, -20, 0],
             rotate: [0, 2, 0]
           }}
@@ -200,7 +200,7 @@ export const Home = () => {
             </Link>
           </div>
 
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -217,7 +217,7 @@ export const Home = () => {
       {/* CTA Section */}
       <section className="py-32 px-6">
         <div className="max-w-5xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

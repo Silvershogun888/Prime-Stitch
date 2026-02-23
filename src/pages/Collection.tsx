@@ -54,13 +54,13 @@ export const Collection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 className="product-card group"
               >
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 bg-fabric-bg">
                   <motion.img
                     whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover"

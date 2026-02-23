@@ -119,13 +119,10 @@ export const PRODUCTS: Product[] = [
     category: 'Bottoms',
     description: 'High-quality trousers and skirts designed for durability and a professional look.',
     price: 'K250',
-    image: 'https://i.imgur.com/4yeO3LK.png',
+    image: 'https://picsum.photos/seed/bottoms/800/1000',
     gallery: [
-      'https://i.imgur.com/kmvHrce.png',
-      'https://i.imgur.com/x3IxYJS.png',
-      'https://i.imgur.com/Zn5ztCU.png',
-      'https://i.imgur.com/mfPM1kf.png',
-      'https://i.imgur.com/KlVnDdQ.png'
+      'https://picsum.photos/seed/bottoms1/800/1000',
+      'https://picsum.photos/seed/bottoms2/800/1000'
     ]
   }
 ];
